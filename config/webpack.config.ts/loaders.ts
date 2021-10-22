@@ -8,9 +8,12 @@ const cssModuleRegex = /\.module\.css$/
 
 const isProd = process.env.NODE_ENV === 'production'
 
-const cssModuleOptions = isProd
-  ? { localIdentName: '[hash:base64:8]' }
-  : { getLocalIdent: getCSSModuleLocalIdent }
+const cssModuleOptions = { localIdentName: '_[local]_[hash:base64:5]' }
+
+// temporary, maybe i can make better solution
+// isProd
+//   ? { localIdentName: '_[local]_[hash:base64:5]' }
+//   : { getLocalIdent: getCSSModuleLocalIdent }
 
 const babelLoader = {
   test: /\.(js|jsx|ts|tsx)$/,
@@ -113,7 +116,14 @@ const cssModuleLoaderServer = {
 const cssLoaderServer = {
   test: cssRegex,
   exclude: cssModuleRegex,
-  use: [MiniCssExtractPlugin.loader, require.resolve('css-loader')],
+  use: [MiniCssExtractPlugin.loader, 
+    {
+      loader: require.resolve('css-loader'),
+      options: {
+        modules: cssModuleOptions
+      }
+    }
+  ],
   // Don't consider CSS imports dead code even if the
   // containing package claims to have no side effects.
   // Remove this when webpack adds a warning or an error for this.

@@ -1,0 +1,13 @@
+diff --git a/node_modules/babel-plugin-react-css-modules/dist/getClassName.js b/node_modules/babel-plugin-react-css-modules/dist/getClassName.js
+index 5b5246f..92d111c 100644
+--- a/node_modules/babel-plugin-react-css-modules/dist/getClassName.js
++++ b/node_modules/babel-plugin-react-css-modules/dist/getClassName.js
+@@ -15,7 +15,7 @@ const isNamespacedStyleName = styleName => {
+ 
+ const handleError = (message, handleMissingStyleName) => {
+   if (handleMissingStyleName === 'throw') {
+-    throw new Error(message);
++    console.warn('[Style Warning]: ', message);
+   } else if (handleMissingStyleName === 'warn') {
+     // eslint-disable-next-line no-console
+     console.warn(message);

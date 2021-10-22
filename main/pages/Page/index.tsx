@@ -1,9 +1,9 @@
 import * as React from 'react'
-// import css from './Page-1.module.css'
+import './index.css'
 
 function Page () {
   return pug`
-    h1 helloasdasdasd
+    h1.rootTest hi there, red color
   `
 }
 

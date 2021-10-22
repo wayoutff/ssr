@@ -25,7 +25,12 @@ module.exports = (api) => {
       '@babel/typescript'
     ],
     plugins: [
-      "transform-react-pug",
+      [
+        "transform-react-pug", {
+          "classAttribute": "className"
+        }
+      ],
+      'transform-jsx-css-modules',
       "transform-react-jsx",
       '@babel/proposal-object-rest-spread',
       "@babel/plugin-transform-runtime",
@@ -33,6 +38,11 @@ module.exports = (api) => {
       '@babel/proposal-optional-chaining',
       '@babel/syntax-dynamic-import',
       'macros',
+      [
+        "react-css-modules", {
+          "generateScopedName": "_[local]_[hash:base64:5]"
+        }
+      ],
       isDev && isTargetWeb && 'react-refresh/babel'
     ].filter(Boolean),
     env: {

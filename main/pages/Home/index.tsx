@@ -12,6 +12,8 @@ import { MoonIcon, SunIcon } from '@chakra-ui/icons'
 
 import axios from 'axios'
 
+import './test.css'
+
 const Home: React.FC<any> = () => {
   const { t } = useTranslation()
   const toast = useToast()
@@ -36,6 +38,7 @@ const Home: React.FC<any> = () => {
   return (
     <React.Fragment>
       {/* <Features /> */}
+      <div className='block'></div>
       <IconButton
         variant="outline"
         onClick={toggleColorMode}
