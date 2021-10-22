@@ -1,6 +1,10 @@
 import * as React from 'react'
-import css from './Page-1.module.css'
+// import css from './Page-1.module.css'
 
-const Page = () => <div className={css.wrapper}>Page 1</div>
+function Page () {
+  return pug`
+    h1 helloasdasdasd
+  `
+}
 
 export default Page

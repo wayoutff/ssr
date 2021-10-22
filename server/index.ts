@@ -24,6 +24,4 @@ app.listen(process.env.PORT || DEFAULT_PORT, () => {
   colorLog(`App is running: http://localhost:${process.env.PORT}`, 'blue')
 })
 
-console.log(nconf.get())
-
 export default app
