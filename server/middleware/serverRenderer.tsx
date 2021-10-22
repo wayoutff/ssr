@@ -4,10 +4,12 @@ import { renderToString } from 'react-dom/server'
 import { StaticRouter as Router } from 'react-router-dom'
 import { Store } from 'redux'
 import { Provider } from 'react-redux'
+import { ChakraProvider, ColorModeScript } from "@chakra-ui/react"
 import { HelmetProvider } from 'react-helmet-async'
 import IntlProvider from '../../main/i18n/IntlProvider'
 import App from '../../main/App'
 import Html from '../components/HTML'
+import theme from '../../Root/theme'
 
 const helmetContext = {}
 const routerContext = {}
@@ -21,7 +23,10 @@ const serverRenderer: any = () => (
       <Router location={req.url} context={routerContext}>
         <IntlProvider>
           <HelmetProvider context={helmetContext}>
-            <App />
+            <ChakraProvider theme={theme}>
+              <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+              <App />
+            </ChakraProvider>
           </HelmetProvider>
         </IntlProvider>
       </Router>

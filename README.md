@@ -1,11 +1,15 @@
 # ⚛ React + Express + Redux + MongoDB + Redis + Pug + i18n + Webpack 5 + TS + NodeJS
 
 
-#
+# Reuired:
+  Mongodb, Redis, NodeJs
 #
 ### all features:
 
   - 🔥 Babel 7
+  - ⚡️ Redis Session Store
+  - ⚡️ MongoDB with simple orm construction
+  - 🌈 Chakra UI kit
   - 📦 Webpack 4
   - 🔥 ESLint 7 (with a set of custom rules which may be mostly identical to AirBnB with some personal flavor added)
   - 🔥 TypeScript (via Babel)
@@ -27,19 +31,24 @@
   - ✅ Reselect
   - ✅ React Router 5
   - ✅ React Helmet
+  - 🟢 Add nconf with stages: dev, prod, local for secure private keys
 
 
 ## Todo
 
   - [ ] Webpack 5
-  - [ ] Connect Redux/Saga
+  - [ ] Connect Saga
+  - [+] Connect Chakra ui and custom color scheme
+  - [+] Add dark/light mode switch
+  - [+] Connect NConf + copying env files
+  - [+] Separate Routes
   - [ ] Connect pug template
   - [ ] implement signin-signup package
-  - [ ] Сделать удобным добавление новых роутов
-  - [ ] Сделать удобным взятие из стора данных
-  - [ ] Connect MongoDB & Redis session store
-  - [ ] Generate uuid.v4 for session & mongo docs
-  - [ ] Think about orm model
+  - [+] Сделать удобным добавление новых роутов
+  - [+] Сделать удобным взятие из стора данных
+  - [+] Connect MongoDB & Redis session store
+  - [+] Generate uuid.v4 for session & mongo docs
+  - [+] Think about orm model
   - [ ] Add proper [offline support using Workbox](https://webpack.js.org/guides/progressive-web-application/)
   - [ ] Move i18n scripts to an external package to clean up the dependency tree
   - [ ] Document i18n functionality (scan, pull, push, ...)

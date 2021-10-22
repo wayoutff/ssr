@@ -1,63 +1,29 @@
-// import * as React from 'react';
-import path from 'path'
+import './init'
 import express from 'express'
-import cors from 'cors'
-import chalk from 'chalk'
-import manifestHelpers from 'express-manifest-helpers'
-import bodyParser from 'body-parser'
-import paths from '../config/paths'
-// import { configureStore } from '../main/store';
-import errorHandler from './middleware/errorHandler'
-import serverRenderer from './middleware/serverRenderer'
-import addStore from './middleware/addStore'
-import webhookVerification from './middleware/webhookVerification'
-import { i18nextXhr, refreshTranslations } from './middleware/i18n'
-
-require('dotenv').config()
+import { addStore, errorHandler, serverRenderer } from './middleware'
+import { connectMongoDB } from './mongodb.connection'
+import apiRoutes from './routes'
+import { colorLog } from './utils'
+import connectExpressModules from './modules'
+import nconf from 'nconf'
 
 const DEFAULT_PORT: number = 3000
 
+connectMongoDB()
+
 const app = express()
-// const app = express.default();
-
-// Use Nginx or Apache to serve static assets in production
-// or remove the if() around the following
-// lines to use the express.static middleware to serve assets
-// for production (not recommended!)
-// if (process.env.NODE_ENV === 'development') {
-// eslint-disable-next-line max-len
-app.use(paths.publicPath, express.static(path.join(paths.clientBuild, paths.publicPath)))
-// }
-
-app.use(cors())
-
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
-
-app.get('/locales/refresh', webhookVerification, refreshTranslations)
-
-// It's probably a good idea to serve these static assets with Nginx or Apache as well:
-app.get('/locales/:locale/:ns.json', i18nextXhr)
-
 app.use(addStore)
+app.use('/api', apiRoutes) // api routes
 
-const manifestPath = path.join(paths.clientBuild, paths.publicPath)
-
-app.use(
-  manifestHelpers({
-    manifestPath: `${manifestPath}/manifest.json`
-  })
-)
+connectExpressModules(app)
 
 app.use(serverRenderer())
-
 app.use(errorHandler)
 
 app.listen(process.env.PORT || DEFAULT_PORT, () => {
-  console.log(
-    `[${new Date().toISOString()}]`,
-    chalk.blue(`App is running: http://localhost:${process.env.PORT || DEFAULT_PORT}`)
-  )
+  colorLog(`App is running: http://localhost:${process.env.PORT}`, 'blue')
 })
+
+console.log(nconf.get())
 
 export default app

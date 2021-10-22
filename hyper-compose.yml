@@ -1,0 +1,33 @@
+version: 2
+
+services:
+  # Build Dockerfile and run web microservice
+  web:
+    noauto_volume: true
+    fip: lingua
+    image: dmapper/lingua:latest
+    links:
+      - redis:redis
+      - mongo:mongo
+    ports:
+      - '80'
+    environment:
+      - PORT=80
+      - REDIS_URL=redis://redis:6379/1
+      - MONGO_URL=mongodb://mongo:27017/db
+    depends_on:
+      - redis
+      - mongo
+
+  # Redis 3.2
+  redis:
+    noauto_volume: true
+    image: redis:3.2-alpine
+
+  # Mongo 4.0
+  mongo:
+    noauto_volume: true
+    image: mvertes/alpine-mongo:4.0.1-0
+    volumes:
+      - lingua-data:/data/db
+    command: [mongod, --bind_ip, 0.0.0.0, --nojournal]

@@ -3,11 +3,13 @@ import { hydrate } from 'react-dom'
 import { Provider } from 'react-redux'
 import { Router } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
+import { ChakraProvider, ColorModeScript } from "@chakra-ui/react"
 
 import { configureStore } from '../main/store'
 import App from '../main/App'
 import IntlProvider from '../main/i18n/IntlProvider'
 import createHistory from '../main/store/history'
+import theme from './theme'
 
 const history = createHistory()
 
@@ -24,7 +26,10 @@ hydrate(
     <Router history={history}>
       <IntlProvider>
         <HelmetProvider>
-          <App />
+          <ChakraProvider theme={theme}>
+            <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+            <App />
+          </ChakraProvider>
         </HelmetProvider>
       </IntlProvider>
     </Router>
