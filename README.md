@@ -1,4 +1,4 @@
-# ⚛ React + Express + Redux + MongoDB + Redis + Pug + i18n + Webpack 5 + TS + NodeJS
+### ⚛ React + Express + Redux + MongoDB + Redis + Pug + i18n + Webpack 5 + TS + NodeJS
 
 
 # Reuired:
@@ -38,17 +38,17 @@
 
   - [ ] Webpack 5
   - [ ] Connect Saga
-  - [+] Connect Chakra ui and custom color scheme
-  - [+] Add dark/light mode switch
-  - [+] Connect NConf + copying env files
-  - [+] Separate Routes
-  - [ ] Connect pug template
+  - [x] Connect Chakra ui and custom color scheme
+  - [x] Add dark/light mode switch
+  - [x] Connect NConf + copying env files
+  - [x] Separate Routes
+  - [x] Connect pug template
   - [ ] implement signin-signup package
-  - [+] Сделать удобным добавление новых роутов
-  - [+] Сделать удобным взятие из стора данных
-  - [+] Connect MongoDB & Redis session store
-  - [+] Generate uuid.v4 for session & mongo docs
-  - [+] Think about orm model
+  - [x] Сделать удобным добавление новых роутов
+  - [ ] Сделать удобным взятие из стора данных
+  - [x] Connect MongoDB & Redis session store
+  - [x] Generate uuid.v4 for session & mongo docs
+  - [x] Think about orm model
   - [ ] Add proper [offline support using Workbox](https://webpack.js.org/guides/progressive-web-application/)
   - [ ] Move i18n scripts to an external package to clean up the dependency tree
   - [ ] Document i18n functionality (scan, pull, push, ...)
