@@ -1,6 +1,6 @@
 {
   "name": "ssr-merrn",
-  "version": "6.0.0",
+  "version": "0.0.2",
   "author": "Eugene Sandryukov <statix-dev@ya.ru> (https://github.com/statix-dev)",
   "license": "MIT",
   "engines": {
