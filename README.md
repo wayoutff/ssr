@@ -1,10 +1,8 @@
-### ⚛ React + Express + Redux + MongoDB + Redis + Pug + i18n + Webpack 5 + TS + NodeJS
+![CherryPlum](https://i.ibb.co/cL7j9JV/cherryplum2.png)
 
+## Cherry Plum Boilerplate
 
-# Reuired:
-  Mongodb, Redis, NodeJs
-#
-### all features:
+#### Features:
 
   - 🔥 Babel 7
   - ⚡️ Redis Session Store
