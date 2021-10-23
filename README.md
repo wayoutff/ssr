@@ -8,6 +8,7 @@
   - ⚡️ Redis Session Store
   - ⚡️ MongoDB with simple orm construction
   - 🌈 Chakra UI kit
+  - 🐶 Support Pug-in-JS styntax
   - 📦 Webpack 4
   - 🔥 ESLint 7 (with a set of custom rules which may be mostly identical to AirBnB with some personal flavor added)
   - 🔥 TypeScript (via Babel)
@@ -16,7 +17,7 @@
   - 🐐 React Testing Library
   - ✅ React i18next for multi language support
   - ✅ Server Side Rendering with Express
-  - 🏎 React Fast Refresh
+  - 🏎 React Fast Refresh (very fast!)
   - ✅ CSS Modules
   - ✅ PostCSS
   - ✅ Precommit hooks via lint-staged + Husky
@@ -34,19 +35,19 @@
 
 ## Todo
 
-  - [ ] Webpack 5
-  - [ ] Connect Saga
   - [x] Connect Chakra ui and custom color scheme
   - [x] Add dark/light mode switch
   - [x] Connect NConf + copying env files
   - [x] Separate Routes
   - [x] Connect pug template
-  - [ ] implement signin-signup package
   - [x] Сделать удобным добавление новых роутов
-  - [ ] Сделать удобным взятие из стора данных
+  - [x] Сделать удобным взятие из стора данных
   - [x] Connect MongoDB & Redis session store
   - [x] Generate uuid.v4 for session & mongo docs
   - [x] Think about orm model
+  - [ ] Webpack 5
+  - [ ] Connect Saga
+  - [ ] implement signin-signup package
   - [ ] Add proper [offline support using Workbox](https://webpack.js.org/guides/progressive-web-application/)
   - [ ] Move i18n scripts to an external package to clean up the dependency tree
   - [ ] Document i18n functionality (scan, pull, push, ...)
