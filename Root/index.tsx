@@ -4,12 +4,12 @@ import { Provider } from 'react-redux'
 import { Router } from 'react-router-dom'
 import { HelmetProvider } from 'react-helmet-async'
 import { ChakraProvider, ColorModeScript } from "@chakra-ui/react"
-
 import { configureStore } from '../main/store'
 import App from '../main/App'
 import IntlProvider from '../main/i18n/IntlProvider'
 import createHistory from '../main/store/history'
 import theme from './theme'
+import MDXWrapper from '../packages/mdx'
 
 const history = createHistory()
 
@@ -23,16 +23,18 @@ const store =
 
 hydrate(
   <Provider store={store}>
-    <Router history={history}>
-      <IntlProvider>
-        <HelmetProvider>
-          <ChakraProvider theme={theme}>
-            <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-            <App />
-          </ChakraProvider>
-        </HelmetProvider>
-      </IntlProvider>
-    </Router>
+    <MDXWrapper>
+      <Router history={history}>
+        <IntlProvider>
+          <HelmetProvider>
+            <ChakraProvider theme={theme}>
+              <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+              <App />
+            </ChakraProvider>
+          </HelmetProvider>
+        </IntlProvider>
+      </Router>
+    </MDXWrapper>
   </Provider>,
   document.getElementById('app')
 )

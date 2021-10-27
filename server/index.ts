@@ -4,6 +4,7 @@ import { addStore, errorHandler, serverRenderer } from './middleware'
 import { connectMongoDB } from './mongodb.connection'
 import apiRoutes from './routes'
 import { colorLog } from './utils'
+import bodyParser from 'body-parser'
 import connectExpressModules from './modules'
 import nconf from 'nconf'
 
@@ -16,6 +17,8 @@ app.use(addStore)
 app.use('/api', apiRoutes) // api routes
 
 connectExpressModules(app)
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
 app.use(serverRenderer())
 app.use(errorHandler)

@@ -10,6 +10,7 @@ import IntlProvider from '../../main/i18n/IntlProvider'
 import App from '../../main/App'
 import Html from '../components/HTML'
 import theme from '../../Root/theme'
+import MDXWrapper from '../../packages/mdx'
 
 const helmetContext = {}
 const routerContext = {}
@@ -20,16 +21,18 @@ const serverRenderer: any = () => (
 ) => {
   const content = renderToString(
     <Provider store={res.locals.store}>
-      <Router location={req.url} context={routerContext}>
-        <IntlProvider>
-          <HelmetProvider context={helmetContext}>
-            <ChakraProvider theme={theme}>
-              <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-              <App />
-            </ChakraProvider>
-          </HelmetProvider>
-        </IntlProvider>
-      </Router>
+      <MDXWrapper>
+        <Router location={req.url} context={routerContext}>
+          <IntlProvider>
+            <HelmetProvider context={helmetContext}>
+              <ChakraProvider theme={theme}>
+                <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+                <App />
+              </ChakraProvider>
+            </HelmetProvider>
+          </IntlProvider>
+        </Router>
+      </MDXWrapper>
     </Provider>
   )
 

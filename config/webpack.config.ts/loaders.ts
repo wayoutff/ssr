@@ -38,6 +38,14 @@ const babelLoader = {
   }
 }
 
+const mdxLoader = {
+  test: /\.mdx?$/,
+  use: [
+    require.resolve('babel-loader'),
+    require.resolve('@mdx-js/loader')
+  ]
+}
+
 const cssModuleLoaderClient = {
   test: cssModuleRegex,
   use: [
@@ -175,13 +183,13 @@ const fileLoaderServer = {
 
 export const client = [
   {
-    oneOf: [babelLoader, cssModuleLoaderClient, cssLoaderClient, urlLoaderClient, fileLoaderClient]
+    oneOf: [babelLoader, mdxLoader, cssModuleLoaderClient, cssLoaderClient, urlLoaderClient, fileLoaderClient]
   }
 ]
 
 export const server = [
   {
-    oneOf: [babelLoader, cssModuleLoaderServer, cssLoaderServer, urlLoaderServer, fileLoaderServer]
+    oneOf: [babelLoader, mdxLoader, cssModuleLoaderServer, cssLoaderServer, urlLoaderServer, fileLoaderServer]
   }
 ]
 

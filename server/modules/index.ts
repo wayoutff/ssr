@@ -2,7 +2,6 @@ import path from 'path'
 import express from 'express'
 import manifestHelpers from 'express-manifest-helpers'
 import cors from 'cors'
-import bodyParser from 'body-parser'
 import paths from '../../config/paths'
 import connectSession from './session.connect'
 
@@ -20,8 +19,6 @@ export default function connectExpressModules (app) {
   connectSession(app)
 
   app.use(cors())
-  app.use(bodyParser.json())
-  app.use(bodyParser.urlencoded({ extended: true }))
 
   const manifestPath = path.join(paths.clientBuild, paths.publicPath)
 
