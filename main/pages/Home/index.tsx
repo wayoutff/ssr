@@ -13,7 +13,7 @@ import {
   TableCaption,
 } from "@chakra-ui/react"
 import { setLocale, counterIncrement } from '../../store/app/actions'
-import { getCounter } from '../../store/app/selectors'
+import { getCounter, getUser } from '../../store/app/selectors'
 import { Locale } from '../../store/app/types'
 import Features from '../../components/Features'
 import { MoonIcon, SunIcon } from '@chakra-ui/icons'
@@ -30,6 +30,7 @@ const Home: React.FC<any> = () => {
   const toast = useToast()
   const { colorMode, toggleColorMode } = useColorMode()
   const counter = useSelector(getCounter)
+  const cUser = useSelector(getUser)
   const dispatch = useDispatch()
 
   async function handleGetData () {
@@ -37,14 +38,14 @@ const Home: React.FC<any> = () => {
     return data
   }
 
-  useEffect(() => {
-    handleGetData().then((res) => {
-      console.log(res)
-      const k = JSON.stringify(res).split(`\t`)[0].split('\\n').map(item => item.split('\\t'))
-      setParsed(k)
-      console.log(k)
-    })
-  }, [])
+  // useEffect(() => {
+  //   handleGetData().then((res) => {
+  //     console.log(res)
+  //     const k = JSON.stringify(res).split(`\t`)[0].split('\\n').map(item => item.split('\\t'))
+  //     setParsed(k)
+  //     console.log(k)
+  //   })
+  // }, [])
 
   const handleLocaleChange = useCallback(
     (e: React.FormEvent<HTMLButtonElement>) => {
@@ -58,14 +59,15 @@ const Home: React.FC<any> = () => {
   }
 
   async function handleCreateDoc () {
-    console.log('sdasd')
-    const { data } = await axios.get('/api/testya')
-    console.log(data)
+    console.log('=====>>>', cUser)
+    // const { data } = await axios.get('/api/testya')
+    // console.log(data)
   }
   // console.log(JSON.stringify(text).split(`\t`)[0].split('\\n').map(item => item.split('\\t')))
   return (
     <React.Fragment>
-      <Dashboard />
+      <span>{cUser ? cUser.email : 'no data'}</span>
+      {/* <Dashboard />
       {parsed && parsed.length && (
         <Table variant="simple">
           <TableCaption>Imperial to metric conversion factors</TableCaption>
@@ -110,7 +112,7 @@ const Home: React.FC<any> = () => {
             </Tr>
           </Tfoot>
         </Table>
-      )}
+      )} */}
       {/* <p>{ JSON.stringify(text).split("\t') }</p> */}
       {/* <Features />
       <div className='block'></div>
@@ -149,9 +151,9 @@ const Home: React.FC<any> = () => {
           test
         </button> */}
 
-        {/* <button value="en_US" onClick={handleCreateDoc}>
+        <button value="en_US" onClick={handleCreateDoc}>
           handle create doc
-        </button> */}
+        </button>
       {/* <Test /> */}
     </React.Fragment>
   )

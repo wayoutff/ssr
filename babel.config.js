@@ -26,8 +26,11 @@ module.exports = (api) => {
     ],
     plugins: [
       [
-        "transform-react-pug", {
-          "classAttribute": "className"
+        "transform-react-pug"
+      ],
+      [
+        "react-css-modules", {
+          "generateScopedName": "_[local]_[hash:base64:5]"
         }
       ],
       'transform-jsx-css-modules',
@@ -38,11 +41,6 @@ module.exports = (api) => {
       '@babel/proposal-optional-chaining',
       '@babel/syntax-dynamic-import',
       'macros',
-      [
-        "react-css-modules", {
-          "generateScopedName": "_[local]_[hash:base64:5]"
-        }
-      ],
       isDev && isTargetWeb && 'react-refresh/babel'
     ].filter(Boolean),
     env: {

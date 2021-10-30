@@ -1,0 +1,10 @@
+.root {
+  display: flex;
+  align-items:  center;
+  justify-content: center;
+  height: 100%
+}
+
+.form {
+  max-width: 50%;
+}

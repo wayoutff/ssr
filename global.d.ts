@@ -38,6 +38,8 @@ declare module '*.webp' {
   export default src
 }
 
+declare const pug: any
+
 declare module '*.svg' {
   import * as React from 'react'
 

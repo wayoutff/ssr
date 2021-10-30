@@ -8,6 +8,7 @@
   - ⚡️ Redis Session Store
   - ⚡️ MongoDB with simple orm construction
   - 🌈 Chakra UI kit
+  - ⛓ Passport.js Sign-in/Sign-up
   - 🐶 Support Pug-in-JS styntax
   - 📦 Webpack 4
   - 🔥 ESLint 7 (with a set of custom rules which may be mostly identical to AirBnB with some personal flavor added)
@@ -45,9 +46,9 @@
   - [x] Connect MongoDB & Redis session store
   - [x] Generate uuid.v4 for session & mongo docs
   - [x] Think about orm model
+  - [+] Connect Saga
+  - [+] implement signin-signup package
   - [ ] Webpack 5
-  - [ ] Connect Saga
-  - [ ] implement signin-signup package
   - [ ] Add proper [offline support using Workbox](https://webpack.js.org/guides/progressive-web-application/)
   - [ ] Move i18n scripts to an external package to clean up the dependency tree
   - [ ] Document i18n functionality (scan, pull, push, ...)
