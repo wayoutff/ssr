@@ -26,7 +26,9 @@ module.exports = (api) => {
     ],
     plugins: [
       [
-        "transform-react-pug"
+        "transform-react-pug", {
+          "classAttribute": "styleName"
+        }
       ],
       [
         "react-css-modules", {

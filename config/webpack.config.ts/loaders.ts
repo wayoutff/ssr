@@ -3,8 +3,8 @@ import getCSSModuleLocalIdent from 'react-dev-utils/getCSSModuleLocalIdent'
 
 const generateSourceMap = process.env.OMIT_SOURCEMAP === 'true' ? false : true
 
-const cssRegex = /\.css$/
-const cssModuleRegex = /\.module\.css$/
+const cssRegex = /\.module\.css$/
+const cssModuleRegex = /\.css$/
 
 const isProd = process.env.NODE_ENV === 'production'
 

@@ -6,7 +6,7 @@ import { signOutStart, checkUserSession, signInSuccess } from '../store/app/acti
 import { useTranslation } from 'react-i18next'
 import { Button, useToast, Spinner } from "@chakra-ui/react"
 import axios from 'axios'
-import './index.css'
+import './index.module.css'
 
 export default function Layout ({ children, history = {} }) {
   const [loading, setLoading] = useState(true)
