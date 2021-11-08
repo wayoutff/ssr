@@ -46,8 +46,8 @@
   - [x] Connect MongoDB & Redis session store
   - [x] Generate uuid.v4 for session & mongo docs
   - [x] Think about orm model
-  - [+] Connect Saga
-  - [+] implement signin-signup package
+  - [x] Connect Saga
+  - [x] implement signin-signup package
   - [ ] Webpack 5
   - [ ] Add proper [offline support using Workbox](https://webpack.js.org/guides/progressive-web-application/)
   - [ ] Move i18n scripts to an external package to clean up the dependency tree
