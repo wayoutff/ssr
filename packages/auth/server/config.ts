@@ -6,12 +6,10 @@ const localStrategy = passportLocal.Strategy;
 import UserModel from './model'
 
 passport.serializeUser(function (user, done) {
-  console.log('1??????')
   done(null, user.id);
 });
 
 passport.deserializeUser(function (id, done) {
-  console.log('??????')
   UserModel.findById(id, function (err, user) {
     done(err, user);
   });

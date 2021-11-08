@@ -19,6 +19,10 @@ const UserSchema = new mongoose.Schema({
   password: {
     type: String,
   },
+  role: {
+    type: String,
+    default: 'base'
+  },
   googleId: String, //this is the ID that google oauth return
   facebookId: String, //this is the ID that facebook oauth return
   

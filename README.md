@@ -34,6 +34,8 @@
   - 🟢 Add nconf with stages: dev, prod, local for secure private keys
 
 
+URGENT: "mongoose": "5.9.18" reverted, need to fix problem with set headers
+
 ## Todo
 
   - [x] Connect Chakra ui and custom color scheme
@@ -48,10 +50,7 @@
   - [x] Think about orm model
   - [x] Connect Saga
   - [x] implement signin-signup package
-
-## in progress
-
-  - [ ] Permissions package
+  - [x] base permissions
 
 ## not now
 

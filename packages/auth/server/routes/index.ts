@@ -35,26 +35,22 @@ router.post('/login', async (req, res, next) => {
 //sign up route
 router.post('/signup', async (req, res, next) => {
   passport.authenticate('signup', async (error, user, info) => {
-    console.log('1')
     try {
       if (error) {
-        console.log(error, '?')
         return res.status(500).json({
-          message: 'Somthing is wrong',
+          message: 'Ooops, somthing happend',
           error: error || 'internal server errror',
         });
       }
 
-      console.log(req, '2')
       req.login(user, async (error) => {
         if (error) {
           res.status(500).json({
-            message: 'Somthing is wrong',
+            message: 'Ooops, somthing happend',
             error: error || 'internal server errror',
           });
         }
 
-        console.log('3')
         return res.json({ user, info });
       });
     } catch (error) {
@@ -66,18 +62,16 @@ router.post('/signup', async (req, res, next) => {
 //to check if the user is authenticated
 router.get('/login_check', (req, res, next) => {
   if (!req.user) {
-    console.log('??')
     res.send({})
     return
   }
   res.json(req.user);
-  console.log('sd?')
 });
 
 //log out
 router.get('/logout', async (req, res) => {
   req.logout();
-  res.json({ message: 'logged out' });
+  return res.json({ message: 'logged out' });
 });
 
 export default router

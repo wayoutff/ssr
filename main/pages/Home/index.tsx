@@ -65,11 +65,19 @@ const Home: React.FC<any> = () => {
 
   async function handleCreateDoc () {
     console.log('=====>>>', cUser)
-    // const { data } = await axios.get('/api/testya')
-    // console.log(data)
+    const { data } = await axios.post('/api/test-permission')
+    console.log(data)
+  }
+
+  async function handleUpd () {
+    console.log('=====>>>', cUser)
+    const { data } = await axios.post('/api/set-document-superadmin')
+    console.log(data)
   }
 
   return pug`
+    // Button.btnSignUp(onClick=handleCreateDoc) TEST PERMISSION
+    // Button.btnSignUp(onClick=handleUpd) TEST handleUpd
     div.about
       div.titling
         p.name Eugene Sandryukov

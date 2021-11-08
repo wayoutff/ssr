@@ -1,21 +1,24 @@
 import express from 'express'
-// import { UserModel } from '../models'
+import UserModel from '../../packages/auth/server/model'
 import webhookVerification from '../middleware/webhookVerification'
 import { i18nextXhr, refreshTranslations } from './controllers/locales'
 import circularjson from 'circular-json'
+import { hasPermission, hasOwnerRights } from '../../packages/permissions'
 
 import axios from 'axios'
 const router = express.Router()
 
-// router.post('/create-doc', async (req, res, next) => {
-//   const newUserDoc = new UserModel({
-//     text: 'tes11111t'
-//   })
-//   // newUser.getTestMessage()
-//   // console.log(newUser, '<<<<< NEW USER')
-//   const user = await newUserDoc.save()
-//   console.log(user)
-// })
+router.post('/test-permission', hasPermission('create'), async (req, res, next) => {
+  console.log('IS THIS A LOG FROM C')
+})
+
+router.post('/set-document-superadmin', hasOwnerRights, async (req, res, next) => {
+  const filter = { _id: req.user._id }
+  const upd = await UserModel.findOneAndUpdate(filter, {
+    role: 'root'
+  })
+  res.json({ status: 'ok' })
+})
 
 // locales with i18n
 router.get('/locales/refresh', webhookVerification, refreshTranslations)
