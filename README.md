@@ -48,6 +48,13 @@
   - [x] Think about orm model
   - [x] Connect Saga
   - [x] implement signin-signup package
+
+## in progress
+
+  - [ ] Permissions package
+
+## not now
+
   - [ ] Webpack 5
   - [ ] Add proper [offline support using Workbox](https://webpack.js.org/guides/progressive-web-application/)
   - [ ] Move i18n scripts to an external package to clean up the dependency tree
