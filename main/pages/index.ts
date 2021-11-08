@@ -1,4 +1,5 @@
 export { default as Home } from './Home'
-export { default as Page } from './Page'
+export { default as Snippets } from './Snippets'
 export { default as PSignIn } from './PSignIn'
 export { default as PSignUp } from './PSignUp'
+export { default as Collections } from './Collections'

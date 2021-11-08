@@ -26,7 +26,7 @@ export function* emailSignInAsync({ payload: { email, password, history } }) {
       withCredentials: true,
     });
     yield put(signInSuccess(response.data.user));
-    history.push('/secrets');
+    history.push('/');
   } catch (error) {
     yield put(signInFailure(error.response.data.error));
     history.push('/');
@@ -46,7 +46,7 @@ export function* signUpAsync({ payload: { email, password, history } }) {
       withCredentials: true,
     });
     yield put(signUpSuccess(response.data.user));
-    history.push('/secrets');
+    history.push('/');
   } catch (error) {
     yield put(signUpFailure(error.response.data.error));
     history.push('/');
@@ -70,11 +70,9 @@ export function* signOutAsync({ payload: { history } }) {
 //check authentication
 export function* isUserAuthenticated() {
   try {
-    console.log('a>>')
     const response = yield axios.get('/auth/login_check', {
-      withCredentials: true,
+      withCredentials: true
     });
-    console.log(response, 'asd')
     yield put(signInSuccess(response.data));
   } catch (error) {
     yield put(signInFailure(error.response.data.error));

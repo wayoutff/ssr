@@ -1,28 +1,36 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { signUpStart } from '../../store/app/actions'
-import { Input, Button } from "@chakra-ui/react"
+import { Input, Text, Button } from "@chakra-ui/react"
 import './index.css'
 
 function SignUp ({ history }) {
-  // const signUpStart = use
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [repeatPassword, setRepeatPassword] = useState('')
   const dispatch = useDispatch()
   async function handleSignUp () {
-    // await axios.post('')
-    console.log(email, password, history)
+    if (password !== repeatPassword) {
+      return
+    }
     dispatch(signUpStart({ email, password, history }))
   }
   return pug`
-    h1.rootTest Sign up page
-    Input(
-      onChange=(e)=>setEmail(e.target.value)
-    )
-    Input(
-      onChange=(e)=>setPassword(e.target.value)
-    )
-    Button(onClick=()=>handleSignUp()) Sign up
+    div.root
+      div.form
+        Text Email
+        Input(
+          onChange=(e)=>setEmail(e.target.value)
+        )
+        Text.text Password
+        Input(
+          onChange=(e)=>setPassword(e.target.value)
+        )
+        Text.text Repeat password
+        Input(
+          onChange=(e)=>setRepeatPassword(e.target.value)
+        )
+        Button.btnSignUp(onClick=handleSignUp) Sign up
   `
 }
 

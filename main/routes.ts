@@ -7,9 +7,9 @@ export const routes = [
     component: pages.Home
   },
   {
-    path: '/page-1',
+    path: '/snippets',
     exact: true,
-    component: pages.Page
+    component: pages.Snippets
   },
   {
     path: '/sign-in',
@@ -20,5 +20,10 @@ export const routes = [
     path: '/sign-up',
     exact: true,
     component: pages.PSignUp
+  },
+  {
+    path: '/collections',
+    exact: true,
+    component: pages.Collections
   }
 ]

@@ -1,3 +1,18 @@
-.rootTest {
-  color: red;
+.root {
+  display: flex;
+  align-items:  center;
+  justify-content: center;
+  height: 100%
+}
+
+.form {
+  max-width: 50%;
+}
+
+.btnSignUp {
+  margin-top: 16px;
+}
+
+.text {
+  margin-top: 8px;
 }

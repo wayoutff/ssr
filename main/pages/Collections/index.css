@@ -1,0 +1,56 @@
+.about {
+  margin-top: 46px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.name {
+  font-size: 40px;
+  font-weight: 600;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.description {
+  margin-top: 8px;
+  margin-right: 0px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+@media screen and (min-width: 400px) {
+  .name {
+    text-align: left;
+  }
+
+  .description {
+    margin-right: 100px;
+  }
+}
+
+
+.title {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.card {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-left: 12px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  align-items: flex-start;
+}
+
+.cardTitle {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.cardDescription {
+  font-size: 16px;
+  letter-spacing: 1px;
+}
