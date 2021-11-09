@@ -8,7 +8,10 @@ colorLog('Start init MongoDB Connection', 'blue')
 export const connectMongoDB = () => {
   if (database) return;
 
-  Mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/testingTS2');
+  Mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/testingTS2', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  });
 
   database = Mongoose.connection;
   database.once("open", async () => {
